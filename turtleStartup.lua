@@ -32,14 +32,13 @@ while true do
                 isRunning = true
                 if type(turtleProgram) == "nil" then
                     turtleProgram = require("program")
-                    if type(turtleProgram.resume) == "function" then
+                    if turtleProgram and type(turtleProgram.resume) == "function" then
                         turtleProgram.resume("data")
                     end
                 end
-                
             elseif message[1] == "stop" then
                 isRunning = false
-                if type(turtleProgram.suspend) == "function" then
+                if turtleProgram and type(turtleProgram.suspend) == "function" then
                     turtleProgram.suspend("data")
                 end
             elseif message[1] == "refuel" then
